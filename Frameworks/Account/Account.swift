@@ -292,6 +292,8 @@ public final class Account: DisplayNameProvider, UnreadCountProvider, Container,
 			LocalAccountDelegate.validateCredentials(transport: transport, credentials: credentials, completion: completion)
 		case .feedbin:
 			FeedbinAccountDelegate.validateCredentials(transport: transport, credentials: credentials, completion: completion)
+		case .feedWrangler:
+			FeedWranglerAccountDelegate.validateCredentials(transport: transport, credentials: credentials, completion: completion)
 		default:
 			break
 		}

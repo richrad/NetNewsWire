@@ -149,7 +149,13 @@ final class FeedWranglerAccountDelegate: AccountDelegate {
 	}
 	
 	static func validateCredentials(transport: Transport, credentials: Credentials, completion: @escaping (Result<Bool, Error>) -> Void) {
-		fatalError()
+		let caller = FeedWranglerAPICaller(transport: transport)
+		caller.credentials = credentials
+		caller.validateCredentials() { result in
+			DispatchQueue.main.async {
+				completion(result)
+			}
+		}
 	}
 	
 	

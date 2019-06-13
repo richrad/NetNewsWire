@@ -60,6 +60,10 @@ final class AccountsDetailViewController: NSViewController, NSTextFieldDelegate 
 			accountsFeedbinWindowController.account = account
 			accountsFeedbinWindowController.runSheetOnWindow(self.view.window!)
 			accountsWindowController = accountsFeedbinWindowController
+		case .feedWrangler:
+			let accountsFeedWrangerWindowController = AccountsFeedWranglerWindowController()
+			accountsFeedWrangerWindowController.runSheetOnWindow(self.view.window!)
+			accountsWindowController = accountsFeedWrangerWindowController
 		default:
 			break
 		}

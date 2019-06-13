@@ -16,6 +16,11 @@ enum CreateFeedWranglerSubscriptionResult {
 	case notFound
 }
 
+enum FeedWranglerAPICallerError: Error {
+	case invalidData
+	case noAccessToken
+}
+
 final class FeedWranglerAPICaller: NSObject {
 	
 	private let baseURL = URL(string: "https://feedwrangler.net/api/v2/")!
@@ -51,8 +56,22 @@ final class FeedWranglerAPICaller: NSObject {
 		transport.send(request: request) { result in
 			switch result {
 			case .success(let response):
-				self.parseAuthorizationResponse(response: response)
-				completion(.success(true))
+				guard let responseData = response.1 else {
+					completion(.failure(FeedWranglerAPICallerError.invalidData))
+					return
+				}
+				do {
+					let parsedResponse = try JSONDecoder().decode(FeedWranglerAuthorizationResponse.self, from: responseData)
+					if let accessToken = parsedResponse.accessToken {
+						self.accessToken = accessToken
+					} else {
+						completion(.failure(FeedWranglerAPICallerError.noAccessToken))
+					}
+					
+				} catch let error {
+					completion(.failure(error))
+				}
+				
 			case .failure(let error):
 				switch error {
 				case TransportError.httpError(status: let status):
@@ -66,11 +85,6 @@ final class FeedWranglerAPICaller: NSObject {
 				}
 			}
 		}
-	}
-	
-	func parseAuthorizationResponse(response: (HTTPURLResponse, Data?)) {
-		guard let data = response.1 else { fatalError() }
-		
 	}
 }
 

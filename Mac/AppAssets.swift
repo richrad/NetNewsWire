@@ -34,6 +34,10 @@ struct AppAssets {
 		return RSImage(named: "accountFeedbin")
 	}()
 	
+	static var accountFeedWrangler: RSImage! = {
+		return RSImage(named: "accountFeedWrangler")
+	}()
+	
 	static var faviconTemplateImage: RSImage = {
 		return RSImage(named: "faviconTemplateImage")!
 	}()

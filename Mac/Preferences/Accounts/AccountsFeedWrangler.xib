@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="AccountsFeedWranglerWindowController" customModule="NetNewsWire" customModuleProvider="target">
+            <connections>
+                <outlet property="actionButton" destination="VBR-la-ABY" id="xyT-0m-M4L"/>
+                <outlet property="errorMessageLabel" destination="bnM-7Q-dmD" id="HAM-zG-Ve8"/>
+                <outlet property="passwordTextField" destination="YSM-MW-ker" id="74e-Z8-BuZ"/>
+                <outlet property="progressIndicator" destination="WPk-ge-crJ" id="N0r-C5-m7z"/>
+                <outlet property="usernameTextField" destination="fja-uw-F4I" id="pud-D5-2gE"/>
+                <outlet property="window" destination="QvC-M9-y7g" id="4Vk-u8-ooq"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="240" width="433" height="249"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+            <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
+                <rect key="frame" x="0.0" y="0.0" width="433" height="249"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <subviews>
+                    <stackView distribution="fill" orientation="horizontal" alignment="bottom" spacing="19" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aet-40-Mrp">
+                        <rect key="frame" x="92" y="190" width="249" height="39"/>
+                        <subviews>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9om-eb-rFu">
+                                <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="36" id="UJI-Oc-n3Y"/>
+                                    <constraint firstAttribute="height" constant="36" id="e9P-Hf-6Nv"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="accountFeedWrangler" id="VeE-Q2-iiK"/>
+                            </imageView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="82e-4a-PCN">
+                                <rect key="frame" x="53" y="0.0" width="198" height="39"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="FeedWrangler" id="lV9-h7-HZm">
+                                    <font key="font" metaFont="system" size="32"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <visibilityPriorities>
+                            <integer value="1000"/>
+                            <integer value="1000"/>
+                        </visibilityPriorities>
+                        <customSpacing>
+                            <real value="3.4028234663852886e+38"/>
+                            <real value="3.4028234663852886e+38"/>
+                        </customSpacing>
+                    </stackView>
+                    <gridView xPlacement="trailing" yPlacement="center" rowAlignment="none" rowSpacing="12" columnSpacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Hdc-Kq-i8J">
+                        <rect key="frame" x="79" y="73" width="276" height="85"/>
+                        <rows>
+                            <gridRow id="ukl-zr-bmo"/>
+                            <gridRow id="Aba-Ew-ABl"/>
+                            <gridRow id="JZv-2p-v4v"/>
+                        </rows>
+                        <columns>
+                            <gridColumn id="sG4-1q-FSk"/>
+                            <gridColumn xPlacement="leading" id="286-oZ-TiG"/>
+                        </columns>
+                        <gridCells>
+                            <gridCell row="ukl-zr-bmo" column="sG4-1q-FSk" id="DJy-9Y-4kx">
+                                <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oCU-oy-ho0">
+                                    <rect key="frame" x="23" y="66" width="41" height="17"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Email:" id="xIn-Qm-FDr">
+                                        <font key="font" usesAppearanceFont="YES"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                            </gridCell>
+                            <gridCell row="ukl-zr-bmo" column="286-oZ-TiG" id="XjA-Wd-RGI">
+                                <textField key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fja-uw-F4I">
+                                    <rect key="frame" x="76" y="63" width="200" height="22"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="200" id="PXW-ay-TlC"/>
+                                    </constraints>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="nf8-mh-csM">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                            </gridCell>
+                            <gridCell row="Aba-Ew-ABl" column="sG4-1q-FSk" id="nuJ-Ne-wLS">
+                                <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lP8-Mt-zbu">
+                                    <rect key="frame" x="-2" y="32" width="66" height="17"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Password:" id="hTL-jj-n87">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                            </gridCell>
+                            <gridCell row="Aba-Ew-ABl" column="286-oZ-TiG" id="3Bw-Lr-0mY">
+                                <secureTextField key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YSM-MW-ker">
+                                    <rect key="frame" x="76" y="29" width="200" height="22"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="200" id="J0S-JM-9q6"/>
+                                    </constraints>
+                                    <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="OuQ-gN-GZY">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        <allowedInputSourceLocales>
+                                            <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                        </allowedInputSourceLocales>
+                                    </secureTextFieldCell>
+                                </secureTextField>
+                            </gridCell>
+                            <gridCell row="JZv-2p-v4v" column="sG4-1q-FSk" headOfMergedCell="rv8-mb-h5j" xPlacement="leading" id="rv8-mb-h5j">
+                                <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bnM-7Q-dmD">
+                                    <rect key="frame" x="-2" y="0.0" width="104" height="17"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" id="bMQ-R8-bgN">
+                                        <font key="font" usesAppearanceFont="YES"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                            </gridCell>
+                            <gridCell row="JZv-2p-v4v" column="286-oZ-TiG" headOfMergedCell="rv8-mb-h5j" id="4vF-0C-Xs7"/>
+                        </gridCells>
+                    </gridView>
+                    <progressIndicator hidden="YES" wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="WPk-ge-crJ">
+                        <rect key="frame" x="209" y="166" width="16" height="16"/>
+                    </progressIndicator>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VBR-la-ABY">
+                        <rect key="frame" x="340" y="13" width="79" height="32"/>
+                        <buttonCell key="cell" type="push" title="Action" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="voo-sT-e5h">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="action:" target="-2" id="B8K-X9-oDi"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fHG-bg-hM8">
+                        <rect key="frame" x="258" y="13" width="82" height="32"/>
+                        <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="BnS-D1-RFV">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="cancel:" target="-2" id="zk7-gD-cdT"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="WPk-ge-crJ" firstAttribute="centerX" secondItem="EiT-Mj-1SZ" secondAttribute="centerX" id="0rL-Ur-O3k"/>
+                    <constraint firstItem="Hdc-Kq-i8J" firstAttribute="centerX" secondItem="EiT-Mj-1SZ" secondAttribute="centerX" id="4Du-vA-dYJ"/>
+                    <constraint firstAttribute="trailing" secondItem="VBR-la-ABY" secondAttribute="trailing" constant="20" id="9zF-m7-NOk"/>
+                    <constraint firstItem="fHG-bg-hM8" firstAttribute="centerY" secondItem="VBR-la-ABY" secondAttribute="centerY" id="EC6-lU-zwj"/>
+                    <constraint firstItem="Hdc-Kq-i8J" firstAttribute="top" secondItem="WPk-ge-crJ" secondAttribute="bottom" constant="8" id="FKv-0H-GFf"/>
+                    <constraint firstAttribute="bottom" secondItem="VBR-la-ABY" secondAttribute="bottom" constant="20" id="IUl-fl-CVw"/>
+                    <constraint firstItem="VBR-la-ABY" firstAttribute="leading" secondItem="fHG-bg-hM8" secondAttribute="trailing" constant="12" symbolic="YES" id="NDs-ej-TpL"/>
+                    <constraint firstItem="WPk-ge-crJ" firstAttribute="top" secondItem="aet-40-Mrp" secondAttribute="bottom" constant="8" id="Nbr-bd-VSN"/>
+                    <constraint firstItem="aet-40-Mrp" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" id="p8L-r3-2Mu"/>
+                    <constraint firstItem="aet-40-Mrp" firstAttribute="centerX" secondItem="EiT-Mj-1SZ" secondAttribute="centerX" id="tO9-f7-PyP"/>
+                </constraints>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="srA-wp-Xv1"/>
+            </connections>
+            <point key="canvasLocation" x="260" y="112"/>
+        </window>
+    </objects>
+    <resources>
+        <image name="accountFeedWrangler" width="144" height="144"/>
+    </resources>
+</document>
